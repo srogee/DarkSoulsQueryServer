@@ -11,9 +11,6 @@ namespace DarkSoulsQueryServer.Controllers
     [Route("[controller]")]
     public class WorldFlagsController : ControllerBase
     {
-        // Base addresses for lots of information in DS3
-        const int gameFlagData = 0x473BE28;
-
         private readonly ILogger<WorldFlagsController> _logger;
 
         public WorldFlagsController(ILogger<WorldFlagsController> logger) {
@@ -34,21 +31,20 @@ namespace DarkSoulsQueryServer.Controllers
 
             if (processInfo.IsValid) {
                 // Define values we want to inspect
-                var flagsToInspect = new Dictionary<string, DS3MemoryValueBoolFlag>() {
-                    ["Bosses.IudexGundyr.Defeated"] = new DS3MemoryValueBoolFlag(processInfo, new DS3MemoryAddress(gameFlagData, 0, 0x5A67), 7),
-                    ["Bosses.AbyssWatchers.Defeated"] = new DS3MemoryValueBoolFlag(processInfo, new DS3MemoryAddress(gameFlagData, 0, 0x2D67), 7),
-                    ["Bosses.YhormTheGiant.Defeated"] = new DS3MemoryValueBoolFlag(processInfo, new DS3MemoryAddress(gameFlagData, 0, 0x5567), 7),
-                    ["Bosses.Aldrich.Defeated"] = new DS3MemoryValueBoolFlag(processInfo, new DS3MemoryAddress(gameFlagData, 0, 0x4B67), 7),
-                    ["Bosses.TwinPrinces.Defeated"] = new DS3MemoryValueBoolFlag(processInfo, new DS3MemoryAddress(gameFlagData, 0, 0x3764), 1),
-                    ["Bosses.SoulOfCinder.Defeated"] = new DS3MemoryValueBoolFlag(processInfo, new DS3MemoryAddress(gameFlagData, 0, 0x5F67), 7),
+                var flagsToInspect = new string[] {
+                    "Bosses.IudexGundyr.Defeated",
+                    "Bosses.AbyssWatchers.Defeated",
+                    "Bosses.YhormTheGiant.Defeated",
+                    "Bosses.Aldrich.Defeated",
+                    "Bosses.TwinPrinces.Defeated",
+                    "Bosses.SoulOfCinder.Defeated"
                 };
 
-                // Regenerate addresses for the values we want to get
-                DS3MemoryValue.RegenerateAddresses(flagsToInspect.Values.ToArray());
-
                 // Actually get the values
-                foreach (var kvp in flagsToInspect) {
-                    results.Add(new WorldFlag(kvp.Key, kvp.Value.GetValueGeneric()));
+                foreach (var flagId in flagsToInspect) {
+                    var address = DS3MemoryAddress.KnownAddresses[flagId];
+                    var flag = new DS3MemoryValueBoolFlag(processInfo, address, (int)address.ExtraInfo, DS3AddressUpdateType.Automatic);
+                    results.Add(new WorldFlag(flagId, flag.GetValueGeneric()));
                 }
             }
 
