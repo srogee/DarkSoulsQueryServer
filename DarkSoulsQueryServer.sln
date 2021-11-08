@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DarkSoulsQueryServer", "DarkSoulsQueryServer.csproj", "{616DE8A6-E73C-4C94-8606-71FC4057C29E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DS3MemoryReader", "..\ds3-memory-reader\DS3MemoryReader\DS3MemoryReader.csproj", "{7EA400A9-ECFB-40EC-87EE-3E984B36BBCD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{616DE8A6-E73C-4C94-8606-71FC4057C29E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{616DE8A6-E73C-4C94-8606-71FC4057C29E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{616DE8A6-E73C-4C94-8606-71FC4057C29E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{616DE8A6-E73C-4C94-8606-71FC4057C29E}.Debug|x64.Build.0 = Debug|Any CPU
+		{616DE8A6-E73C-4C94-8606-71FC4057C29E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{616DE8A6-E73C-4C94-8606-71FC4057C29E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{616DE8A6-E73C-4C94-8606-71FC4057C29E}.Release|x64.ActiveCfg = Release|Any CPU
+		{616DE8A6-E73C-4C94-8606-71FC4057C29E}.Release|x64.Build.0 = Release|Any CPU
+		{7EA400A9-ECFB-40EC-87EE-3E984B36BBCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EA400A9-ECFB-40EC-87EE-3E984B36BBCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EA400A9-ECFB-40EC-87EE-3E984B36BBCD}.Debug|x64.ActiveCfg = Debug|x64
+		{7EA400A9-ECFB-40EC-87EE-3E984B36BBCD}.Debug|x64.Build.0 = Debug|x64
+		{7EA400A9-ECFB-40EC-87EE-3E984B36BBCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EA400A9-ECFB-40EC-87EE-3E984B36BBCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EA400A9-ECFB-40EC-87EE-3E984B36BBCD}.Release|x64.ActiveCfg = Release|x64
+		{7EA400A9-ECFB-40EC-87EE-3E984B36BBCD}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {202B3400-89A7-4E12-8424-0DFA98903953}
+	EndGlobalSection
+EndGlobal
