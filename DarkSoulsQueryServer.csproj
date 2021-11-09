@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ds3-memory-reader\DS3MemoryReader\DS3MemoryReader.csproj" />
+    <ProjectReference Include="..\DarkSoulsMemoryReader\DarkSoulsMemoryReader\DarkSoulsMemoryReader.csproj" />
   </ItemGroup>
 
 </Project>

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DarkSoulsQueryServer", "DarkSoulsQueryServer.csproj", "{616DE8A6-E73C-4C94-8606-71FC4057C29E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DS3MemoryReader", "..\ds3-memory-reader\DS3MemoryReader\DS3MemoryReader.csproj", "{7EA400A9-ECFB-40EC-87EE-3E984B36BBCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DarkSoulsMemoryReader", "..\DarkSoulsMemoryReader\DarkSoulsMemoryReader\DarkSoulsMemoryReader.csproj", "{7EA400A9-ECFB-40EC-87EE-3E984B36BBCD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
