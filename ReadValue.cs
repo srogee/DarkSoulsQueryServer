@@ -2,11 +2,11 @@ using System;
 
 namespace DarkSoulsQueryServer
 {
-    public class WorldFlag
+    public class ReadValue
     {
         public string Id { get; set; }
-        public bool Value { get; set; }
-        public WorldFlag(string id, bool value) {
+        public dynamic Value { get; set; }
+        public ReadValue(string id, dynamic value) {
             Id = id;
             Value = value;
         }
