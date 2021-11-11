@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DarkSoulsMemoryReader;
+using System.Linq;
 
 namespace DarkSoulsQueryServer.Controllers
 {
@@ -29,7 +30,7 @@ namespace DarkSoulsQueryServer.Controllers
 
             if (reader.IsAttached) {
                 // Actually get the values
-                foreach (var valueId in valuesToInspect) {
+                foreach (var valueId in ParseQuery(valuesToInspect)) {
                     if (DarkSouls3.KnownMemoryValues.TryGetValue(valueId, out MemoryValue value)) {
                         results.Add(new ReadValue(valueId, value.ReadValue(reader)));
                     }
@@ -39,6 +40,18 @@ namespace DarkSoulsQueryServer.Controllers
             reader.Detach();
 
             return results;
+        }
+
+        // Allow consumers to do simple pattern matching, like "Bosses.*" or "*"
+        private IEnumerable<string> ParseQuery(IEnumerable<string> valuesToInspect) {
+            return valuesToInspect.SelectMany(value => {
+                if (value.EndsWith("*")) {
+                    var prefix = value.Substring(0, value.Length - 1);
+                    return DarkSouls3.KnownMemoryValues.Keys.Where(key => key.StartsWith(prefix)).ToArray();
+                } else {
+                    return new string[] { value };
+                }
+            }).Distinct();
         }
     }
 }
