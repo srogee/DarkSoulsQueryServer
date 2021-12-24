@@ -40,6 +40,12 @@ namespace DarkSoulsQueryServer
 
             app.UseRouting();
 
+            app.UseCors(builder => {
+                builder.AllowAnyOrigin();
+                builder.WithHeaders("Accept", "Content-Type");
+                builder.WithMethods("POST");
+            });
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => {

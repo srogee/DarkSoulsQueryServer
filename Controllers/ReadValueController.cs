@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DarkSoulsMemoryReader;
 using System.Linq;
+using Microsoft.AspNetCore.Cors;
 
 namespace DarkSoulsQueryServer.Controllers
 {
